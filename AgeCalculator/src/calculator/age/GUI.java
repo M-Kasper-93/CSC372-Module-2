@@ -30,7 +30,6 @@ public class GUI extends JFrame {
 		currentDateField.setEditable(false);
 		
 		JTextField birthDateField = new JTextField();
-		birthDateField.setPreferredSize(new Dimension(100, 20));
 		birthDateField.setEditable(true);
 		
 		// button to calculate age
@@ -63,6 +62,8 @@ public class GUI extends JFrame {
 		
 		layoutConst.gridx = 1;
 		layoutConst.gridy = 1;
+		layoutConst.fill = GridBagConstraints.HORIZONTAL;  
+		layoutConst.weightx = 1.0;
 		panel.add(birthDateField, layoutConst);
 		
 		// add result label to panel
