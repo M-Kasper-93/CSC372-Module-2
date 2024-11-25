@@ -12,11 +12,13 @@ public class GUI extends JFrame {
 	int age;
 	public GUI() { // frame object creation
 		setTitle("Age Calculator");
-		setSize(1200, 2400);
+		setSize(400, 300);
 		
 		// panel object creation
 		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout()); 
+		panel.setLayout(new GridBagLayout()); 
+		GridBagConstraints layoutConst = new GridBagConstraints();
+		layoutConst.insets = new Insets(10, 10, 10, 10);
 		
 		// labels
 		JLabel currentDateLabel = new JLabel("Current year: ");
@@ -27,7 +29,8 @@ public class GUI extends JFrame {
 		JTextField currentDateField = new JTextField(LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE)); 
 		currentDateField.setEditable(false);
 		
-		JTextField birthDateField = new JTextField(); 
+		JTextField birthDateField = new JTextField();
+		birthDateField.setPreferredSize(new Dimension(100, 20));
 		birthDateField.setEditable(true);
 		
 		// button to calculate age
@@ -44,17 +47,33 @@ public class GUI extends JFrame {
 			}
 		});
 		
-		// add labels to panel
-		panel.add(currentDateLabel);
-		panel.add(birthDateLabel);
-		panel.add(ageResultLabel);
+		// add currentDate label and field to panel
+		layoutConst.gridx = 0;
+		layoutConst.gridy = 0;
+		panel.add(currentDateLabel, layoutConst);
 		
-		// add text fields to panel
-		panel.add(currentDateField);
-		panel.add(birthDateField);
+		layoutConst.gridx = 1;
+		layoutConst.gridy = 0;
+		panel.add(currentDateField, layoutConst);
+		
+		// add birthDate label and field to panel
+		layoutConst.gridx = 0;
+		layoutConst.gridy = 1;
+		panel.add(birthDateLabel, layoutConst);
+		
+		layoutConst.gridx = 1;
+		layoutConst.gridy = 1;
+		panel.add(birthDateField, layoutConst);
+		
+		// add result label to panel
+		layoutConst.gridx = 2;
+		layoutConst.gridy = 2;
+		panel.add(ageResultLabel, layoutConst);
 		
 		// add button to panel
-		panel.add(calcButton);
+		layoutConst.gridx = 1;
+		layoutConst.gridy = 2;
+		panel.add(calcButton, layoutConst);
 		
 		// add panel to frame
 		add(panel);

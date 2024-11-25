@@ -8,7 +8,7 @@ import java.time.Period;
 
 public class Date {
     private LocalDate currentDate;
-    private LocalDate birthDate;
+    private LocalDate birthDate = null;
 
     // parameterized constructor
     public Date(LocalDate birthDate) {

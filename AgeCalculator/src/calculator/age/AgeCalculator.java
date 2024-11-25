@@ -1,4 +1,4 @@
-/* Purpose of AgeCalculator class: Serves as the main class to handle core functions  */
+/* Purpose of AgeCalculator class: Serves as the main class */
 
 /* This program calculates the user's age based on the entered birthday. 
  * Created by Megan Kasper on 24 November 2024
