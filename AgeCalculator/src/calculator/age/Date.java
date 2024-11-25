@@ -1,14 +1,48 @@
 /* Purpose of Date class: Contains variables, getters, and setters for the current date and birthday 
- * Reference material: https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html */
+ * Reference materials for implementing LocalDate: https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html */
 
 package calculator.age;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Date {
-	int year = 0000;
-	int month = 00;
-	int day = 00;
-	LocalDate today = LocalDate.now(); // Retrieve today's date for age calculation
-	LocalDate birthday = LocalDate.of(year, month, day); // User's birthdate
+    private LocalDate currentDate;
+    private LocalDate birthDate;
+
+    // default constructor
+    public Date() {
+        this.currentDate = LocalDate.now(); 
+        this.birthDate = null; 
+    }
+
+    // parameterized constructor
+    public Date(LocalDate birthDate) {
+        this.currentDate = LocalDate.now(); 
+        this.birthDate = birthDate; 
+    }
+
+    // getter and setter for birthDate
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    // getter for currentDate 
+    public LocalDate getCurrentDate() {
+        return currentDate;
+    }
+
+    // calculate age
+    public int calculateAge() {
+        if (birthDate == null) {
+            throw new IllegalStateException("Birth date must be set to calculate age.");
+        }
+
+        Period period = Period.between(birthDate, currentDate);
+        return period.getYears(); // Get the number of full years between birthDate and currentDate
+    }
 }
