@@ -1,4 +1,4 @@
-/* Purpose of Date class: Contains variables, getters, and setters for the current date and birthday 
+/* Purpose of Date class: Contains variables and methods for the current date and birthday 
  * Reference materials for implementing LocalDate: https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html */
 
 package calculator.age;
@@ -10,30 +10,10 @@ public class Date {
     private LocalDate currentDate;
     private LocalDate birthDate;
 
-    // default constructor
-    public Date() {
-        this.currentDate = LocalDate.now(); 
-        this.birthDate = null; 
-    }
-
     // parameterized constructor
     public Date(LocalDate birthDate) {
         this.currentDate = LocalDate.now(); 
         this.birthDate = birthDate; 
-    }
-
-    // getter and setter for birthDate
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    // getter for currentDate 
-    public LocalDate getCurrentDate() {
-        return currentDate;
     }
 
     // calculate age
@@ -43,6 +23,6 @@ public class Date {
         }
 
         Period period = Period.between(birthDate, currentDate);
-        return period.getYears(); // Get the number of full years between birthDate and currentDate
+        return period.getYears(); 
     }
 }

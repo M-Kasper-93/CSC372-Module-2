@@ -11,11 +11,11 @@ import javax.swing.JFrame;
 public class AgeCalculator {
 
 	public static void main(String[] args) {
+		// create frame with panel, components
 		GUI ageCalcFrame = new GUI();
 		
 		ageCalcFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ageCalcFrame.pack();
 		ageCalcFrame.setVisible(true);
-
 	}
-
 }

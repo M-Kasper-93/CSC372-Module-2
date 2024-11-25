@@ -12,6 +12,7 @@ public class GUI extends JFrame {
 	int age;
 	public GUI() { // frame object creation
 		setTitle("Age Calculator");
+		setSize(1200, 2400);
 		
 		// panel object creation
 		JPanel panel = new JPanel();
@@ -21,6 +22,7 @@ public class GUI extends JFrame {
 		JLabel currentDateLabel = new JLabel("Current year: ");
 		JLabel birthDateLabel = new JLabel("Birth date (Enter numerically as YYYYMMDD): ");
 		JLabel ageResultLabel = new JLabel(" ");
+		
 		// text field for current date and birthday
 		JTextField currentDateField = new JTextField(LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE)); 
 		currentDateField.setEditable(false);
