@@ -15,7 +15,8 @@ public class AgeCalculator {
 		GUI ageCalcFrame = new GUI();
 		
 		ageCalcFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ageCalcFrame.pack();
+		//ageCalcFrame.pack();   UPDATE this is removed to improve final display
+		ageCalcFrame.setSize(900, 300);   // UPDATE made larger
 		ageCalcFrame.setVisible(true);
 	}
 }
